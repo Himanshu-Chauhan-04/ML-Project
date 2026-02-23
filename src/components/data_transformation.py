@@ -70,11 +70,11 @@ class DataTransformation:
             numerical = ['reading_score', 'writing_score']
             categorical = ['gender', 'race_ethnicity', 'parental_level_of_education', 'lunch','test_preparation_course']
 
-            input_feature_train_df = train_df.drop(columns=[target_column_name])
-            target_feature_train_df = train_df[target_column_name]
+            input_feature_train_df = train_df.drop(columns=[target_column_name]) # X_train
+            target_feature_train_df = train_df[target_column_name] # y_train
             
-            input_feature_test_df = test_df.drop(columns=[target_column_name])
-            target_feature_test_df = test_df[target_column_name]
+            input_feature_test_df = test_df.drop(columns=[target_column_name]) # X_test
+            target_feature_test_df = test_df[target_column_name] # y_test
             
             logging.info("Applying preprocessing object on training dataframe and testing dataframe")
 
@@ -98,6 +98,3 @@ class DataTransformation:
             )
         except Exception as e:
             raise CustomException(e,sys)
-        
-if __name__ == "__main__":
-    pass
